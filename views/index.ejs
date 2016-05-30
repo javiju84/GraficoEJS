@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!--
+   <script src="./AnyChart/js/anychart.min.js"></script>
+    <link rel="stylesheet" href="./AnyChart/css/anychart-ui.min.css" />
+    
+    <title>Single-Series Area Chart</title>
+      <style>
+        html, body, #container {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+      }
+    </style>
+    -->
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>Welcome to <%= title %></h2>
+    <h3>Usuarios</h3>
+    	<ul id="usuarios">
+		  <% usuarios.forEach(function(usuario){ %>
+    		<li><%= usuario.nombre %> <p/> <%= usuario.email %></li>
+ 		 <% }) %>
+		</ul>
+	
+	<h3>Datos</h3>
+    	<ul id="aDocs">
+    		<% aDocs.forEach(function(aDocs){ %>
+    		<li><%=aDocs.fecha %><-><%= aDocs.abierto %><-><%= aDocs.alto %><-><%= aDocs.bajo %><-><%= aDocs.cierre %><-><%= aDocs.volumen %></li><% }) %>
+
+    	</ul>
+   
+  </body>
+</html>
