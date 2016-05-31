@@ -27,13 +27,21 @@
     		<li><%= usuario.nombre %> <p/> <%= usuario.email %></li>
  		 <% }) %>
 		</ul>
-	
-	<h3>Datos</h3>
-    	<ul id="aDocs">
-    		<% aDocs.forEach(function(aDocs){ %>
-    		<li><%=aDocs.fecha %><-><%= aDocs.abierto %><-><%= aDocs.alto %><-><%= aDocs.bajo %><-><%= aDocs.cierre %><-><%= aDocs.volumen %></li><% }) %>
-
-    	</ul>
+	<h3>Últimos 20 valores</h3>
+    <ul id="parseo_code">
+      <%= parseo_code %>
+    <ul id="parseo_nombre">
+      <%= parseo_nombre %>
+    <ul id="valores">
+      <% valores.forEach(function(dato2){ %>
+        <li><%= dato2%></li><%})%>
+      
+    </ul>
+	<h3>Todos los valores</h3>
+    <ul id="aDocs">
+    	<% aDocs.forEach(function(aDocs){ %>
+    	<li><%=aDocs.fecha %><-><%= aDocs.abierto %><-><%= aDocs.alto %><-><%= aDocs.bajo %><-><%= aDocs.cierre %><-><%= aDocs.volumen %></li><% }) %>
+    </ul>
    
   </body>
 </html>

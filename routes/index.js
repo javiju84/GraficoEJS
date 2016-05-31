@@ -14,7 +14,7 @@ var urlSantander = "https://www.quandl.com/api/v3/datasets/YAHOO/MC_SAN.json?api
 
 		if (!error && response.statusCode == 200){
 		var parseo = body.dataset.data;
-		console.log(parseo)
+		//console.log(parseo)
 		var jsonString=[];
 		for(var i = 0 ; i < parseo.length; i++){
 			var jsonDato={};
@@ -34,7 +34,10 @@ var urlSantander = "https://www.quandl.com/api/v3/datasets/YAHOO/MC_SAN.json?api
 			var aDocs =  jsonArrayValor;
 			//console.log(jsonArrayValor);
 			
-			
+			var parseo_code = body.dataset.dataset_code;
+      var parseo_nombre = body.dataset.name;
+      console.log(parseo_code)
+      console.log(parseo_nombre)
 		}
 	
 
@@ -104,6 +107,24 @@ var urlSantander = "https://www.quandl.com/api/v3/datasets/YAHOO/MC_SAN.json?api
     });
 	};
 	*/
+var dato2 = [];
+    for (var n = 0; n < jsonArrayValor.length; n++){
+      dato2.push([
+        jsonArrayValor[n]['fecha'],
+        jsonArrayValor[n]['abierto'],
+        jsonArrayValor[n]['alto'],
+        jsonArrayValor[n]['bajo'],
+        jsonArrayValor[n]['cierre'],
+        jsonArrayValor[n]['volumen']
+        ]);
+      
+
+    }
+  
+  var valores = ([ dato2[n=0],dato2[n=1],dato2[n=2],dato2[n=3],dato2[n=4],dato2[n=5],dato2[n=6],
+                   dato2[n=7],dato2[n=8],dato2[n=9],dato2[n=10],dato2[n=11],dato2[n=12],dato2[n=13],
+                   dato2[n=14],dato2[n=15],dato2[n=16],dato2[n=17],dato2[n=18],dato2[n=19],dato2[n=20]]);
+
 var usuarios = [
   { nombre: 'javier', email: 'javier@email.com' },
   { nombre: 'pedro', email: 'pedro@email.com' },
@@ -115,8 +136,10 @@ router.get('/', function(req, res, next) {
   	title: 'Express',
   	aDocs: aDocs,
   	usuarios: usuarios,
+    valores: valores,
+    parseo_code:parseo_code,
+    parseo_nombre:parseo_nombre
   	//container: container
-  	//parseo:parseo
   });
 });
 
